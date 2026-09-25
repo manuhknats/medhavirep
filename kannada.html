@@ -1,0 +1,4213 @@
+```html
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ಮೆಧಾವಿ ಸ್ಕಿಲ್ಸ್ ಯೂನಿವರ್ಸಿಟಿ - ವಿದ್ಯಾರ್ಥಿ ಓರಿಯೆಂಟೇಶನ್</title>
+
+    <style>/* ==========================================
+   GLOBAL SETTINGS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --primary: #123c69;
+    --secondary: #1d70a2;
+    --accent: #f4a261;
+
+    --light: #f5f8fc;
+    --dark: #17202a;
+
+    --white: #ffffff;
+    --gray: #667085;
+
+    --shadow:
+        0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        #edf2f7;
+
+    color:
+        var(--dark);
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   PRESENTATION
+========================================== */
+
+.presentation {
+
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+
+}
+
+
+/* ==========================================
+   SLIDES
+========================================== */
+
+.slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding:
+        55px 8% 90px;
+
+    background:
+        var(--white);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    transform:
+        translateX(50px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+    overflow-y: auto;
+}
+
+
+.slide.active {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+    pointer-events: auto;
+
+}
+
+
+/* ==========================================
+   HERO SLIDE
+========================================== */
+
+.hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0c2d48,
+            #145374,
+            #1f7a8c
+        );
+
+    color:
+        var(--white);
+
+    text-align:
+        center;
+
+    align-items:
+        center;
+
+}
+
+
+.hero-content {
+
+    max-width:
+        850px;
+
+}
+
+
+.logo-circle {
+
+    width:
+        100px;
+
+    height:
+        100px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    margin:
+        0 auto 25px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    border:
+        2px solid rgba(255,255,255,0.6);
+
+    font-size:
+        28px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+}
+
+
+.small-title {
+
+    letter-spacing:
+        5px;
+
+    font-size:
+        15px;
+
+    margin-bottom:
+        15px;
+
+    opacity:
+        0.85;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(45px, 7vw, 85px);
+
+    line-height:
+        1;
+
+    margin-bottom:
+        20px;
+}
+
+
+.hero h2 {
+
+    font-size:
+        clamp(22px, 3vw, 35px);
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        25px;
+}
+
+
+.intro-text {
+
+    font-size:
+        20px;
+
+    line-height:
+        1.7;
+
+    max-width:
+        700px;
+
+    margin:
+        auto auto 35px;
+
+    opacity:
+        0.9;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+button {
+
+    border:
+        none;
+
+    padding:
+        15px 30px;
+
+    border-radius:
+        30px;
+
+    background:
+        var(--accent);
+
+    color:
+        #222;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s ease;
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+/* ==========================================
+   SLIDE HEADER
+========================================== */
+
+.slide-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin-bottom:
+        35px;
+}
+
+
+.slide-header span {
+
+    font-size:
+        15px;
+
+    font-weight:
+        800;
+
+    color:
+        var(--accent);
+
+    letter-spacing:
+        2px;
+}
+
+
+.slide-header h2 {
+
+    font-size:
+        clamp(30px, 4vw, 52px);
+
+    color:
+        var(--primary);
+}
+
+
+.section-intro {
+
+    font-size:
+        19px;
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.7;
+
+    max-width:
+        900px;
+
+    margin-bottom:
+        35px;
+}
+
+
+/* ==========================================
+   INFORMATION CARDS
+========================================== */
+
+.content-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        25px;
+}
+
+
+.info-card {
+
+    padding:
+        30px;
+
+    background:
+        var(--light);
+
+    border-radius:
+        20px;
+
+    border:
+        1px solid #e1e7ef;
+
+    transition:
+        0.3s;
+}
+
+
+.info-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.info-card.highlight {
+
+    border-top:
+        5px solid var(--accent);
+}
+
+
+.icon {
+
+    font-size:
+        40px;
+
+    margin-bottom:
+        15px;
+}
+
+
+.info-card h3 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        22px;
+}
+
+
+.info-card p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.6;
+}
+
+
+.quote-box {
+
+    margin-top:
+        35px;
+
+    padding:
+        25px 30px;
+
+    border-left:
+        5px solid var(--accent);
+
+    background:
+        #fff8ef;
+
+    font-size:
+        19px;
+
+    line-height:
+        1.7;
+}
+
+
+.quote-box span {
+
+    color:
+        var(--primary);
+
+    font-weight:
+        800;
+}
+
+
+/* ==========================================
+   WISE
+========================================== */
+
+.wise-container {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.1fr 1fr;
+
+    gap:
+        50px;
+
+    align-items:
+        center;
+}
+
+
+.wise-main {
+
+    background:
+        linear-gradient(
+            135deg,
+            #123c69,
+            #1d70a2
+        );
+
+    color:
+        white;
+
+    padding:
+        50px;
+
+    border-radius:
+        30px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.wise-logo {
+
+    font-size:
+        55px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        5px;
+
+    color:
+        var(--accent);
+
+    margin-bottom:
+        20px;
+}
+
+
+.wise-main h1 {
+
+    font-size:
+        38px;
+
+    margin-bottom:
+        20px;
+}
+
+
+.wise-main p {
+
+    font-size:
+        18px;
+
+    line-height:
+        1.7;
+
+    opacity:
+        0.9;
+}
+
+
+.wise-points {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        20px;
+}
+
+
+.point {
+
+    display:
+        flex;
+
+    gap:
+        20px;
+
+    padding:
+        20px;
+
+    border-radius:
+        18px;
+
+    background:
+        var(--light);
+}
+
+
+.point > span {
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-weight:
+        800;
+
+    flex-shrink:
+        0;
+}
+
+
+.point h3 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        5px;
+}
+
+
+.point p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.5;
+}
+
+
+.framework {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    flex-wrap:
+        wrap;
+
+    margin-top:
+        35px;
+}
+
+
+.framework span {
+
+    padding:
+        12px 20px;
+
+    border-radius:
+        30px;
+
+    background:
+        #e9f1f8;
+
+    color:
+        var(--primary);
+
+    font-weight:
+        700;
+}
+
+
+/* ==========================================
+   LEARNING CYCLE
+========================================== */
+
+.cycle {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin:
+        30px 0 45px;
+}
+
+
+.cycle-item {
+
+    width:
+        180px;
+
+    text-align:
+        center;
+}
+
+
+.circle {
+
+    width:
+        85px;
+
+    height:
+        85px;
+
+    margin:
+        auto auto 15px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    font-size:
+        22px;
+
+    font-weight:
+        800;
+
+    box-shadow:
+        0 10px 25px rgba(18,60,105,0.25);
+}
+
+
+.cycle-item h3 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        8px;
+}
+
+
+.cycle-item p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.5;
+}
+
+
+.arrow {
+
+    font-size:
+        35px;
+
+    color:
+        var(--accent);
+
+    font-weight:
+        800;
+}
+
+
+.center-message {
+
+    max-width:
+        750px;
+
+    margin:
+        auto;
+
+    padding:
+        30px;
+
+    text-align:
+        center;
+
+    background:
+        var(--light);
+
+    border-radius:
+        20px;
+}
+
+
+.center-message h3 {
+
+    font-size:
+        27px;
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        10px;
+}
+
+
+.center-message p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.6;
+}
+
+
+/* ==========================================
+   BLENDED LEARNING
+========================================== */
+
+.blend-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        25px;
+}
+
+
+.blend-card {
+
+    padding:
+        35px;
+
+    border-radius:
+        25px;
+
+    text-align:
+        center;
+
+    background:
+        var(--light);
+
+    border:
+        1px solid #e1e7ef;
+}
+
+
+.big-icon {
+
+    font-size:
+        55px;
+
+    margin-bottom:
+        15px;
+}
+
+
+.blend-card h3 {
+
+    color:
+        var(--primary);
+
+    font-size:
+        23px;
+
+    margin-bottom:
+        10px;
+}
+
+
+.blend-card p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.6;
+}
+
+
+.formula {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    flex-wrap:
+        wrap;
+
+    margin-top:
+        35px;
+
+    font-weight:
+        800;
+
+    color:
+        var(--primary);
+}
+
+
+.formula b {
+
+    color:
+        var(--accent);
+
+    font-size:
+        22px;
+}
+
+
+/* ==========================================
+   LMS
+========================================== */
+
+.lms-window {
+
+    max-width:
+        1000px;
+
+    width:
+        100%;
+
+    margin:
+        auto;
+
+    border-radius:
+        20px;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        var(--shadow);
+
+    border:
+        1px solid #dce3eb;
+}
+
+
+.lms-top {
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    padding:
+        20px 25px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+}
+
+
+.lms-content {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        220px 1fr;
+
+    min-height:
+        300px;
+}
+
+
+.lms-menu {
+
+    background:
+        #f0f4f8;
+
+    padding:
+        20px;
+}
+
+
+.menu-item {
+
+    padding:
+        15px;
+
+    margin-bottom:
+        8px;
+
+    border-radius:
+        10px;
+
+    color:
+        var(--gray);
+}
+
+
+.active-menu {
+
+    background:
+        white;
+
+    color:
+        var(--primary);
+
+    font-weight:
+        700;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.06);
+}
+
+
+.lms-main {
+
+    padding:
+        35px;
+}
+
+
+.lms-main h3 {
+
+    font-size:
+        27px;
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        25px;
+}
+
+
+.lms-cards {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        15px;
+}
+
+
+.lms-cards div {
+
+    padding:
+        20px;
+
+    background:
+        var(--light);
+
+    border-radius:
+        15px;
+}
+
+
+.lms-cards b {
+
+    display:
+        block;
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        10px;
+}
+
+
+.lms-cards small {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.5;
+}
+
+
+.tip {
+
+    margin:
+        25px auto 0;
+
+    max-width:
+        900px;
+
+    padding:
+        18px 25px;
+
+    background:
+        #fff8ef;
+
+    border-radius:
+        15px;
+
+    color:
+        #654b27;
+}
+
+
+/* ==========================================
+   OJL TIMELINE
+========================================== */
+
+.timeline {
+
+    max-width:
+        900px;
+
+    margin:
+        auto;
+
+    position:
+        relative;
+}
+
+
+.timeline::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        22px;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    width:
+        3px;
+
+    background:
+        #dce6ef;
+}
+
+
+.timeline-item {
+
+    display:
+        flex;
+
+    gap:
+        25px;
+
+    position:
+        relative;
+
+    margin-bottom:
+        22px;
+}
+
+
+.number {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-weight:
+        800;
+
+    z-index:
+        1;
+
+    flex-shrink:
+        0;
+}
+
+
+.timeline-item h3 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        5px;
+}
+
+
+.timeline-item p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.5;
+}
+
+
+/* ==========================================
+   LOGBOOK
+========================================== */
+
+.logbook-layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        50px;
+
+    align-items:
+        center;
+
+    max-width:
+        1000px;
+
+    margin:
+        auto;
+}
+
+
+.logbook {
+
+    background:
+        white;
+
+    border:
+        1px solid #dce3eb;
+
+    border-radius:
+        15px;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.logbook-header {
+
+    padding:
+        20px;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+}
+
+
+.log-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        120px 1fr;
+
+    padding:
+        17px 20px;
+
+    border-bottom:
+        1px solid #edf0f4;
+}
+
+
+.log-row b {
+
+    color:
+        var(--primary);
+}
+
+
+.log-row span {
+
+    color:
+        var(--gray);
+}
+
+
+.rules {
+
+    padding:
+        35px;
+
+    background:
+        var(--light);
+
+    border-radius:
+        20px;
+}
+
+
+.rules h3 {
+
+    font-size:
+        30px;
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        20px;
+}
+
+
+.rules ul {
+
+    list-style:
+        none;
+}
+
+
+.rules li {
+
+    margin-bottom:
+        15px;
+
+    padding-left:
+        30px;
+
+    position:
+        relative;
+
+    color:
+        var(--gray);
+}
+
+
+.rules li::before {
+
+    content:
+        "✓";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    color:
+        var(--accent);
+
+    font-weight:
+        900;
+}
+
+
+/* ==========================================
+   ASSESSMENT
+========================================== */
+
+.assessment {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        30px;
+}
+
+
+.assessment-block {
+
+    padding:
+        30px;
+
+    border-radius:
+        25px;
+
+    background:
+        var(--light);
+
+    border:
+        1px solid #dce3eb;
+}
+
+
+.assessment-block h3 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        25px;
+
+    font-size:
+        24px;
+}
+
+
+.split {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        20px;
+}
+
+
+.split > div {
+
+    background:
+        white;
+
+    padding:
+        25px;
+
+    border-radius:
+        15px;
+
+    text-align:
+        center;
+}
+
+
+.split strong {
+
+    font-size:
+        40px;
+
+    color:
+        var(--accent);
+
+    display:
+        block;
+}
+
+
+.split h4 {
+
+    color:
+        var(--primary);
+
+    margin:
+        8px 0 12px;
+}
+
+
+.split p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.6;
+}
+
+
+/* ==========================================
+   ABC
+========================================== */
+
+.abc-container {
+
+    max-width:
+        1000px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        200px 1fr;
+
+    gap:
+        50px;
+
+    align-items:
+        center;
+}
+
+
+.abc-icon {
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    border-radius:
+        35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #123c69,
+            #1d70a2
+        );
+
+    color:
+        white;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-size:
+        45px;
+
+    font-weight:
+        900;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.abc-content h2 {
+
+    color:
+        var(--primary);
+
+    font-size:
+        35px;
+
+    margin-bottom:
+        10px;
+}
+
+
+.abc-content > p {
+
+    color:
+        var(--gray);
+
+    font-size:
+        18px;
+
+    margin-bottom:
+        25px;
+}
+
+
+.abc-features {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        15px;
+}
+
+
+.abc-features div {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    align-items:
+        center;
+}
+
+
+.abc-features span {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--accent);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-weight:
+        800;
+}
+
+
+.abc-features p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.5;
+}
+
+
+/* ==========================================
+   DIGILOCKER
+========================================== */
+
+.digilocker {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        300px 1fr;
+
+    gap:
+        70px;
+
+    max-width:
+        950px;
+
+    margin:
+        auto;
+
+    align-items:
+        center;
+}
+
+
+.phone {
+
+    width:
+        230px;
+
+    height:
+        440px;
+
+    border-radius:
+        30px;
+
+    background:
+        #1b1d21;
+
+    padding:
+        12px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.phone-screen {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    border-radius:
+        22px;
+
+    background:
+        #f4f7fa;
+
+    overflow:
+        hidden;
+}
+
+
+.phone-top {
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    padding:
+        20px;
+
+    font-weight:
+        700;
+}
+
+
+.document {
+
+    margin:
+        35px 15px;
+
+    padding:
+        25px 15px;
+
+    background:
+        white;
+
+    border-radius:
+        12px;
+
+    text-align:
+        center;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.08);
+}
+
+
+.document-logo {
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    margin:
+        0 auto 15px;
+
+    font-weight:
+        800;
+}
+
+
+.document h4 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        8px;
+}
+
+
+.document p {
+
+    color:
+        var(--gray);
+
+    font-size:
+        12px;
+}
+
+
+.verified {
+
+    margin-top:
+        20px;
+
+    padding:
+        8px;
+
+    background:
+        #eaf7ee;
+
+    color:
+        #24743c;
+
+    border-radius:
+        8px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+}
+
+
+.digital-info h2 {
+
+    color:
+        var(--primary);
+
+    font-size:
+        35px;
+
+    margin-bottom:
+        15px;
+}
+
+
+.digital-info > p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.7;
+
+    margin-bottom:
+        25px;
+}
+
+
+.digital-points {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        18px;
+}
+
+
+.digital-points div {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    align-items:
+        flex-start;
+}
+
+
+.digital-points span {
+
+    color:
+        #26834b;
+
+    font-size:
+        22px;
+
+    font-weight:
+        900;
+}
+
+
+.digital-points p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.5;
+}
+
+
+/* ==========================================
+   RESPONSIBILITIES
+========================================== */
+
+.responsibility-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        20px;
+}
+
+
+.responsibility {
+
+    padding:
+        25px;
+
+    border-radius:
+        20px;
+
+    background:
+        var(--light);
+
+    text-align:
+        center;
+
+    transition:
+        0.3s;
+}
+
+
+.responsibility:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.res-icon {
+
+    width:
+        70px;
+
+    height:
+        70px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    margin:
+        0 auto 15px;
+
+    font-weight:
+        900;
+
+    font-size:
+        20px;
+}
+
+
+.responsibility h3 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        8px;
+}
+
+
+.responsibility p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.5;
+}
+
+
+/* ==========================================
+   SUCCESS ROAD
+========================================== */
+
+.success-road {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap:
+        15px;
+
+    max-width:
+        1100px;
+
+    margin:
+        20px auto 35px;
+}
+
+
+.road-step {
+
+    text-align:
+        center;
+
+    padding:
+        20px 12px;
+
+    position:
+        relative;
+}
+
+
+.road-step span {
+
+    display:
+        flex;
+
+    width:
+        60px;
+
+    height:
+        60px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin:
+        auto auto 15px;
+
+    font-weight:
+        900;
+}
+
+
+.road-step h3 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        8px;
+}
+
+
+.road-step p {
+
+    color:
+        var(--gray);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.5;
+}
+
+
+.success-message {
+
+    text-align:
+        center;
+
+    padding:
+        30px;
+
+    background:
+        #fff8ef;
+
+    border-radius:
+        20px;
+}
+
+
+.success-message h2 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        10px;
+}
+
+
+.success-message p {
+
+    color:
+        var(--gray);
+}
+
+
+/* ==========================================
+   PROFESSIONAL JOURNEY
+========================================== */
+
+.journey {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    max-width:
+        1100px;
+
+    margin:
+        auto;
+}
+
+
+.journey-card {
+
+    width:
+        210px;
+
+    min-height:
+        180px;
+
+    padding:
+        25px;
+
+    text-align:
+        center;
+
+    background:
+        var(--light);
+
+    border-radius:
+        20px;
+
+    border:
+        1px solid #dce3eb;
+}
+
+
+.journey-number {
+
+    width:
+        50px;
+
+    height:
+        50px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    margin:
+        0 auto 15px;
+
+    font-weight:
+        800;
+}
+
+
+.journey-card h3 {
+
+    color:
+        var(--primary);
+
+    margin-bottom:
+        10px;
+}
+
+
+.journey-card p {
+
+    color:
+        var(--gray);
+
+    line-height:
+        1.5;
+}
+
+
+.journey-arrow {
+
+    font-size:
+        30px;
+
+    color:
+        var(--accent);
+
+    font-weight:
+        900;
+}
+
+
+/* ==========================================
+   FINAL SLIDE
+========================================== */
+
+.final-slide {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0c2d48,
+            #145374,
+            #1f7a8c
+        );
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    align-items:
+        center;
+}
+
+
+.final-content {
+
+    max-width:
+        850px;
+}
+
+
+.final-content h1 {
+
+    font-size:
+        clamp(40px, 6vw, 70px);
+
+    margin-bottom:
+        20px;
+}
+
+
+.final-content > p {
+
+    font-size:
+        20px;
+
+    line-height:
+        1.7;
+
+    opacity:
+        0.9;
+}
+
+
+.quote {
+
+    margin:
+        35px 0;
+
+    font-size:
+        28px;
+
+    font-style:
+        italic;
+
+    color:
+        var(--accent);
+}
+
+
+.thankyou {
+
+    font-size:
+        35px !important;
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        30px;
+}
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.navigation {
+
+    position:
+        fixed;
+
+    bottom:
+        20px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    padding:
+        8px 12px;
+
+    background:
+        rgba(255,255,255,0.95);
+
+    border-radius:
+        40px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.15);
+
+    z-index:
+        100;
+}
+
+
+.navigation button {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    padding:
+        0;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    border-radius:
+        50%;
+}
+
+
+#slideNumber {
+
+    font-weight:
+        700;
+
+    color:
+        var(--primary);
+
+    min-width:
+        60px;
+
+    text-align:
+        center;
+}
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 900px) {
+
+    .slide {
+
+        padding:
+            35px 5% 85px;
+    }
+
+
+    .content-grid,
+    .blend-grid,
+    .responsibility-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .wise-container,
+    .logbook-layout,
+    .assessment,
+    .digilocker {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .cycle {
+
+        flex-wrap:
+            wrap;
+    }
+
+
+    .success-road {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .journey {
+
+        flex-wrap:
+            wrap;
+    }
+
+
+    .journey-arrow {
+
+        display:
+            none;
+    }
+
+
+    .abc-container {
+
+        grid-template-columns:
+            1fr;
+
+        text-align:
+            center;
+    }
+
+
+    .abc-icon {
+
+        margin:
+            auto;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .slide-header h2 {
+
+        font-size:
+            28px;
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            45px;
+    }
+
+
+    .lms-content {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .lms-menu {
+
+        display:
+            none;
+    }
+
+
+    .lms-cards {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .split {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .success-road {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .cycle .arrow {
+
+        display:
+            none;
+    }
+
+}
+</style>
+
+
+    <!-- Kannada Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<main class="presentation">
+
+    <!-- =========================
+         SLIDE 1
+    ========================== -->
+
+    <section class="slide active hero">
+
+        <div class="hero-content">
+
+            <div class="logo-circle">
+                MSU
+            </div>
+
+            <p class="small-title">
+                ಮೆಧಾವಿ ಸ್ಕಿಲ್ಸ್ ಯೂನಿವರ್ಸಿಟಿ
+            </p>
+
+            <h1>
+                ವಿದ್ಯಾರ್ಥಿ ಓರಿಯೆಂಟೇಶನ್
+            </h1>
+
+            <h2>
+                ಕಲಿಯಿರಿ • ಕೆಲಸ ಮಾಡಿ • ಬೆಳೆಯಿರಿ • ಯಶಸ್ವಿಯಾಗಿರಿ
+            </h2>
+
+            <p class="intro-text">
+                ಶೈಕ್ಷಣಿಕ ಕಲಿಕೆ ಮತ್ತು ಕೈಗಾರಿಕಾ ಅನುಭವವನ್ನು
+                ಒಟ್ಟಿಗೆ ಸಂಯೋಜಿಸುವ ಉನ್ನತ ಶಿಕ್ಷಣದ ಹೊಸ ಮಾದರಿಗೆ
+                ನಿಮಗೆ ಹಾರ್ದಿಕ ಸ್ವಾಗತ.
+            </p>
+
+            <button onclick="nextSlide()">
+                ಓರಿಯೆಂಟೇಶನ್ ಪ್ರಾರಂಭಿಸಿ →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 2
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>01</span>
+            <h2>ಕೌಶಲ್ಯ ಆಧಾರಿತ ಶಿಕ್ಷಣ ಏಕೆ?</h2>
+        </div>
+
+        <div class="content-grid">
+
+            <div class="info-card highlight">
+                <div class="icon">🎓</div>
+
+                <h3>ಸಾಂಪ್ರದಾಯಿಕ ಶಿಕ್ಷಣ</h3>
+
+                <p>
+                    ಸಾಂಪ್ರದಾಯಿಕ ಉನ್ನತ ಶಿಕ್ಷಣದಲ್ಲಿ ಕೆಲವೊಮ್ಮೆ
+                    ಶೈಕ್ಷಣಿಕ ಜ್ಞಾನಕ್ಕೆ ಹೆಚ್ಚಿನ ಪ್ರಾಮುಖ್ಯತೆ
+                    ನೀಡಲಾಗುತ್ತದೆ.
+                </p>
+            </div>
+
+
+            <div class="info-card">
+                <div class="icon">🛠️</div>
+
+                <h3>ಕೈಗಾರಿಕಾ ಕೌಶಲ್ಯಗಳು</h3>
+
+                <p>
+                    ಇಂದಿನ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಸೈದ್ಧಾಂತಿಕ ಜ್ಞಾನದ
+                    ಜೊತೆಗೆ ಪ್ರಾಯೋಗಿಕ ಕೌಶಲ್ಯಗಳು ಮತ್ತು
+                    ಕಾರ್ಯಸ್ಥಳದ ಅನುಭವವೂ ಅಗತ್ಯ.
+                </p>
+            </div>
+
+
+            <div class="info-card">
+                <div class="icon">💼</div>
+
+                <h3>ಉದ್ಯೋಗಾರ್ಹತೆ</h3>
+
+                <p>
+                    ನೈಜ ಕಾರ್ಯಸ್ಥಳದ ಜವಾಬ್ದಾರಿಗಳನ್ನು ನಿರ್ವಹಿಸಲು
+                    ಸಿದ್ಧರಾಗಿರುವ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ರೂಪಿಸುವುದು
+                    ಇದರ ಪ್ರಮುಖ ಉದ್ದೇಶ.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="quote-box">
+
+            <strong>ಮುಖ್ಯ ಗಮನ:</strong>
+
+            "ನೀವು ಏನು ಕಲಿಯುತ್ತೀರಿ?"
+            ಎಂಬ ಪ್ರಶ್ನೆಯಿಂದ
+
+            <span>
+                "ನೀವು ಅದನ್ನು ಹೇಗೆ ಕಲಿತು ಅನ್ವಹಿಸಿಕೊಳ್ಳುತ್ತೀರಿ?"
+            </span>
+
+            ಎಂಬುದರ ಕಡೆಗೆ.
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 3
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>02</span>
+            <h2>WISE ಎಂದರೇನು?</h2>
+        </div>
+
+
+        <div class="wise-container">
+
+            <div class="wise-main">
+
+                <div class="wise-logo">
+                    WISE
+                </div>
+
+                <h1>
+                    Work Integrated
+                    Skill-based Education
+                </h1>
+
+                <p>
+                    WISE ಎಂದರೆ ಕೆಲಸದ ಅನುಭವದೊಂದಿಗೆ ಸಂಯೋಜಿತವಾದ
+                    ಕೌಶಲ್ಯ ಆಧಾರಿತ ಶಿಕ್ಷಣ. ಇದು ಶೈಕ್ಷಣಿಕ ಕಲಿಕೆಯನ್ನು
+                    ಪ್ರಾಯೋಗಿಕ ಕಾರ್ಯಸ್ಥಳದ ಅನುಭವದೊಂದಿಗೆ
+                    ಸಂಯೋಜಿಸುವ ಮಾದರಿಯಾಗಿದೆ.
+                </p>
+
+            </div>
+
+
+            <div class="wise-points">
+
+                <div class="point">
+
+                    <span>01</span>
+
+                    <div>
+                        <h3>ಕೆಲಸದೊಂದಿಗೆ ಸಂಯೋಜಿತ ಕಲಿಕೆ</h3>
+
+                        <p>
+                            ಕಲಿಕೆಯನ್ನು ನೈಜ ಕಾರ್ಯಸ್ಥಳದ
+                            ಚಟುವಟಿಕೆಗಳೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತದೆ.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="point">
+
+                    <span>02</span>
+
+                    <div>
+                        <h3>ಕೌಶಲ್ಯ ಆಧಾರಿತ</h3>
+
+                        <p>
+                            ಸೈದ್ಧಾಂತಿಕ ಜ್ಞಾನದ ಜೊತೆಗೆ
+                            ಪ್ರಾಯೋಗಿಕ ಕೌಶಲ್ಯಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲಾಗುತ್ತದೆ.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="point">
+
+                    <span>03</span>
+
+                    <div>
+                        <h3>ಕೈಗಾರಿಕಾ ಅನುಭವ</h3>
+
+                        <p>
+                            ವಿದ್ಯಾರ್ಥಿಗಳು ಕಾರ್ಯಸ್ಥಳದ ಪ್ರಕ್ರಿಯೆಗಳು
+                            ಮತ್ತು ಜವಾಬ್ದಾರಿಗಳನ್ನು ಅನುಭವಿಸುತ್ತಾರೆ.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="framework">
+
+            <span>UGC ಮಾರ್ಗಸೂಚಿಗಳು</span>
+            <span>NCrF</span>
+            <span>NHEQF</span>
+            <span>NEP 2020</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 4
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>03</span>
+            <h2>ಕಲಿಯಿರಿ • ಕೆಲಸ ಮಾಡಿ • ಕಲಿಕೆಯನ್ನು ಮುಂದುವರಿಸಿ</h2>
+        </div>
+
+
+        <div class="cycle">
+
+            <div class="cycle-item">
+
+                <div class="circle">01</div>
+
+                <h3>ಕಲಿಯಿರಿ</h3>
+
+                <p>
+                    ಪರಿಕಲ್ಪನೆಗಳು ಮತ್ತು ಮೂಲಭೂತ ವಿಷಯಗಳನ್ನು
+                    ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.
+                </p>
+
+            </div>
+
+
+            <div class="arrow">→</div>
+
+
+            <div class="cycle-item">
+
+                <div class="circle">02</div>
+
+                <h3>ಅಭ್ಯಾಸ ಮಾಡಿ</h3>
+
+                <p>
+                    ಪ್ರಾಯೋಗಿಕ ಚಟುವಟಿಕೆಗಳ ಮೂಲಕ
+                    ಜ್ಞಾನವನ್ನು ಅನ್ವಯಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="arrow">→</div>
+
+
+            <div class="cycle-item">
+
+                <div class="circle">03</div>
+
+                <h3>ಕೆಲಸ ಮಾಡಿ</h3>
+
+                <p>
+                    ನೈಜ ಕಾರ್ಯಸ್ಥಳದ ಚಟುವಟಿಕೆಗಳನ್ನು
+                    ನಿರ್ವಹಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="arrow">→</div>
+
+
+            <div class="cycle-item">
+
+                <div class="circle">04</div>
+
+                <h3>ಸುಧಾರಿಸಿ</h3>
+
+                <p>
+                    ಅನುಭವ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆಯಿಂದ
+                    ನಿಮ್ಮನ್ನು ಸುಧಾರಿಸಿಕೊಳ್ಳಿ.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="center-message">
+
+            <h3>
+                ಕಲಿಕೆ ನಿರಂತರವಾಗಿರುತ್ತದೆ.
+            </h3>
+
+            <p>
+                ತರಗತಿಯ ಜ್ಞಾನ ಮತ್ತು ಕೈಗಾರಿಕಾ ಅನುಭವಗಳು
+                ನಿಮ್ಮ ಸಂಪೂರ್ಣ ಕಲಿಕೆಯ ಪ್ರಯಾಣದಲ್ಲಿ
+                ಪರಸ್ಪರ ಸಹಾಯ ಮಾಡುತ್ತವೆ.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 5
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>04</span>
+            <h2>ಸಂಯೋಜಿತ ಕಲಿಕಾ ಮಾದರಿ</h2>
+        </div>
+
+
+        <p class="section-intro">
+            ನಿಮ್ಮ ಕಲಿಕೆಯ ಪ್ರಯಾಣವು ಸೈದ್ಧಾಂತಿಕ ಶಿಕ್ಷಣ,
+            ಡಿಜಿಟಲ್ ಕಲಿಕೆ ಮತ್ತು ಪ್ರಾಯೋಗಿಕ ಕೈಗಾರಿಕಾ
+            ಅನುಭವವನ್ನು ಒಳಗೊಂಡಿರುತ್ತದೆ.
+        </p>
+
+
+        <div class="blend-grid">
+
+            <div class="blend-card classroom">
+
+                <div class="big-icon">🏫</div>
+
+                <h3>ಭೌತಿಕ ತರಗತಿಗಳು</h3>
+
+                <p>
+                    ಅಧ್ಯಾಪಕರ ಮಾರ್ಗದರ್ಶನದ ಕಲಿಕೆ ಮತ್ತು
+                    ತರಗತಿಯಲ್ಲಿನ ಸಂವಾದ.
+                </p>
+
+            </div>
+
+
+            <div class="blend-card online">
+
+                <div class="big-icon">💻</div>
+
+                <h3>ಡಿಜಿಟಲ್ ಕಲಿಕೆ</h3>
+
+                <p>
+                    LMS ಮೂಲಕ ಕಲಿಕಾ ಸಂಪನ್ಮೂಲಗಳು,
+                    ಕ್ವಿಜ್‌ಗಳು ಮತ್ತು ಆನ್‌ಲೈನ್ ತರಗತಿಗಳು.
+                </p>
+
+            </div>
+
+
+            <div class="blend-card industry">
+
+                <div class="big-icon">🏭</div>
+
+                <h3>ಕೈಗಾರಿಕಾ ಕಲಿಕೆ</h3>
+
+                <p>
+                    ಕಾರ್ಯಸ್ಥಳದ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು
+                    OJL ಮೂಲಕ ಪ್ರಾಯೋಗಿಕ ಅನುಭವ.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="formula">
+
+            <span>ತರಗತಿ</span>
+            <b>+</b>
+            <span>LMS</span>
+            <b>+</b>
+            <span>ಕೈಗಾರಿಕೆ</span>
+            <b>=</b>
+            <strong>ಸಂಪೂರ್ಣ ಕಲಿಕೆ</strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 6
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>05</span>
+            <h2>MSU LMS ಅನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು</h2>
+        </div>
+
+
+        <div class="lms-window">
+
+            <div class="lms-top">
+
+                <strong>MSU LMS</strong>
+
+                <span>
+                    lms.msu.edu.in
+                </span>
+
+            </div>
+
+
+            <div class="lms-content">
+
+                <div class="lms-menu">
+
+                    <div class="menu-item active-menu">
+                        🏠 ಡ್ಯಾಶ್‌ಬೋರ್ಡ್
+                    </div>
+
+                    <div class="menu-item">
+                        ✅ ಮಾಡಬೇಕಾದ ಕಾರ್ಯಗಳು
+                    </div>
+
+                    <div class="menu-item">
+                        📅 ಕ್ಯಾಲೆಂಡರ್
+                    </div>
+
+                    <div class="menu-item">
+                        📚 ಕಲಿಕಾ ಸಂಪನ್ಮೂಲಗಳು
+                    </div>
+
+                    <div class="menu-item">
+                        🎥 ಲೈವ್ ತರಗತಿ
+                    </div>
+
+                </div>
+
+
+                <div class="lms-main">
+
+                    <h3>
+                        ನಿಮ್ಮ ಡಿಜಿಟಲ್ ಕಲಿಕಾ ಸ್ಥಳ
+                    </h3>
+
+
+                    <div class="lms-cards">
+
+                        <div>
+                            <b>ಮಾಡಬೇಕಾದ ಕಾರ್ಯಗಳು</b>
+
+                            <small>
+                                ಅಸೈನ್‌ಮೆಂಟ್‌ಗಳು ಮತ್ತು
+                                ಬಾಕಿ ಇರುವ ಚಟುವಟಿಕೆಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.
+                            </small>
+                        </div>
+
+
+                        <div>
+                            <b>ಕಲಿಕಾ ಸಂಪನ್ಮೂಲಗಳು</b>
+
+                            <small>
+                                ಕಲಿಕಾ ಸಾಮಗ್ರಿಗಳು ಮತ್ತು
+                                ಕ್ವಿಜ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಿ.
+                            </small>
+                        </div>
+
+
+                        <div>
+                            <b>ಲೈವ್ ತರಗತಿ</b>
+
+                            <small>
+                                ಅಧ್ಯಾಪಕರು ನಿಗದಿಪಡಿಸಿದ
+                                ಆನ್‌ಲೈನ್ ತರಗತಿಗಳಿಗೆ ಸೇರಿ.
+                            </small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tip">
+
+            💡 <strong>ಸಲಹೆ:</strong>
+
+            LMS ಅನ್ನು ನಿಯಮಿತವಾಗಿ ಪರಿಶೀಲಿಸಿ.
+            ಅಸೈನ್‌ಮೆಂಟ್‌ಗಳು, ಕ್ವಿಜ್‌ಗಳು ಅಥವಾ
+            ನಿಗದಿತ ತರಗತಿಗಳನ್ನು ತಪ್ಪಿಸಿಕೊಳ್ಳಬೇಡಿ.
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 7
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>06</span>
+            <h2>On-the-Job Learning — OJL</h2>
+        </div>
+
+
+        <p class="section-intro">
+
+            OJL ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ ಕಲಿಕೆಯನ್ನು
+            ಕೈಗಾರಿಕಾ ಮಾರ್ಗದರ್ಶನದಡಿಯಲ್ಲಿ ನಡೆಯುವ
+            ಪ್ರಾಯೋಗಿಕ ಕಾರ್ಯಸ್ಥಳದ ಅನುಭವದೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುತ್ತದೆ.
+
+        </p>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="number">01</div>
+
+                <div>
+
+                    <h3>
+                        LMS ಲಾಗಿನ್ ಮತ್ತು ಲಾಗ್‌ಬುಕ್ ಪಡೆಯಿರಿ
+                    </h3>
+
+                    <p>
+                        ಜವಾಬ್ದಾರಿಯಲ್ಲಿರುವ ಅಧ್ಯಾಪಕರಿಂದ
+                        ಅಗತ್ಯವಿರುವ LMS ಮತ್ತು OJL ದಾಖಲೆಗಳನ್ನು ಪಡೆಯಿರಿ.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="number">02</div>
+
+                <div>
+
+                    <h3>
+                        ನಿಮ್ಮ ವಿಭಾಗಕ್ಕೆ ಸೇರಿ
+                    </h3>
+
+                    <p>
+                        ನಿಮಗೆ ನಿಯೋಜಿಸಲಾದ ವಿಭಾಗ ಮತ್ತು
+                        ತರಬೇತಿದಾರರನ್ನು ಸಂಪರ್ಕಿಸಿ.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="number">03</div>
+
+                <div>
+
+                    <h3>
+                        ದೈನಂದಿನ ಕಲಿಕೆಯನ್ನು ದಾಖಲಿಸಿ
+                    </h3>
+
+                    <p>
+                        ಕಾರ್ಯಗಳು, ಉಪಕರಣಗಳು, ಫ್ಲೋಚಾರ್ಟ್‌ಗಳು
+                        ಮತ್ತು ಪ್ರಮುಖ ಕಲಿಕೆಗಳನ್ನು ಲಾಗ್‌ಬುಕ್‌ನಲ್ಲಿ ದಾಖಲಿಸಿ.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="number">04</div>
+
+                <div>
+
+                    <h3>
+                        ಮಾಸಿಕ ಪ್ರತಿಕ್ರಿಯೆ ಪಡೆಯಿರಿ
+                    </h3>
+
+                    <p>
+                        ಪ್ರತಿ ತಿಂಗಳ ಕೊನೆಯಲ್ಲಿ ನಿಮ್ಮ
+                        ಮೇಲ್ವಿಚಾರಕರಿಂದ ಪ್ರತಿಕ್ರಿಯೆ ಪಡೆಯಿರಿ.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="number">05</div>
+
+                <div>
+
+                    <h3>
+                        ಪರಿಶೀಲನೆಗಾಗಿ ಸಲ್ಲಿಸಿ
+                    </h3>
+
+                    <p>
+                        ನಿಯಮಿತ ಮೌಲ್ಯಮಾಪನಕ್ಕಾಗಿ
+                        ನಿಮ್ಮ ಲಾಗ್‌ಬುಕ್ ಅನ್ನು ಅಧ್ಯಾಪಕರಿಗೆ ಸಲ್ಲಿಸಿ.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 8
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>07</span>
+            <h2>ನಿಮ್ಮ OJL ಲಾಗ್‌ಬುಕ್ ಅನ್ನು ಹೇಗೆ ನಿರ್ವಹಿಸುವುದು?</h2>
+        </div>
+
+
+        <div class="logbook-layout">
+
+            <div class="logbook">
+
+                <div class="logbook-header">
+                    OJL ಲಾಗ್‌ಬುಕ್
+                </div>
+
+
+                <div class="log-row">
+
+                    <b>ದಿನಾಂಕ</b>
+
+                    <span>
+                        ದೈನಂದಿನ ನಮೂದು
+                    </span>
+
+                </div>
+
+
+                <div class="log-row">
+
+                    <b>ಕಾರ್ಯ</b>
+
+                    <span>
+                        ನಿರ್ವಹಿಸಿದ ಕೆಲಸ
+                    </span>
+
+                </div>
+
+
+                <div class="log-row">
+
+                    <b>ಉಪಕರಣಗಳು</b>
+
+                    <span>
+                        ಬಳಸಿದ ಉಪಕರಣ / ಯಂತ್ರ
+                    </span>
+
+                </div>
+
+
+                <div class="log-row">
+
+                    <b>ಪ್ರಕ್ರಿಯೆ</b>
+
+                    <span>
+                        ಪ್ರಕ್ರಿಯೆ / ಫ್ಲೋಚಾರ್ಟ್
+                    </span>
+
+                </div>
+
+
+                <div class="log-row">
+
+                    <b>ಕಲಿಕೆ</b>
+
+                    <span>
+                        ಪ್ರಮುಖ ಕಲಿಕೆ / ಅವಲೋಕನ
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="rules">
+
+                <h3>
+                    ನೆನಪಿನಲ್ಲಿಡಿ
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        ನಿಯಮಿತವಾಗಿ ನಮೂದುಗಳನ್ನು ಮಾಡಿ.
+                    </li>
+
+                    <li>
+                        ನಿಜವಾಗಿ ನಿರ್ವಹಿಸಿದ ಕೆಲಸವನ್ನು ದಾಖಲಿಸಿ.
+                    </li>
+
+                    <li>
+                        ಉಪಕರಣಗಳು ಮತ್ತು ಪ್ರಕ್ರಿಯೆಗಳನ್ನು
+                        ಸ್ಪಷ್ಟವಾಗಿ ನಮೂದಿಸಿ.
+                    </li>
+
+                    <li>
+                        ಪ್ರಮುಖ ಕಲಿಕೆಗಳನ್ನು ದಾಖಲಿಸಿ.
+                    </li>
+
+                    <li>
+                        ನಿಯಮಿತ ಪರಿಶೀಲನೆ ಮತ್ತು
+                        ಪ್ರತಿಕ್ರಿಯೆ ಪಡೆಯಿರಿ.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 9
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>08</span>
+            <h2>ಮೌಲ್ಯಮಾಪನ ವ್ಯವಸ್ಥೆ</h2>
+        </div>
+
+
+        <p class="section-intro">
+
+            ವಿದ್ಯಾರ್ಥಿಗಳ ಪ್ರಗತಿಯನ್ನು
+            Learning Outcome Based Education
+            ವಿಧಾನವನ್ನು ಆಧರಿಸಿ ಮೌಲ್ಯಮಾಪನ ಮಾಡಲಾಗುತ್ತದೆ.
+
+        </p>
+
+
+        <div class="assessment">
+
+
+            <div class="assessment-block theory">
+
+                <h3>
+                    📘 ಸೈದ್ಧಾಂತಿಕ ಮೌಲ್ಯಮಾಪನ
+                </h3>
+
+
+                <div class="split">
+
+                    <div>
+
+                        <strong>50%</strong>
+
+                        <h4>
+                            ಆಂತರಿಕ
+                        </h4>
+
+                        <p>
+                            ಕ್ವಿಜ್‌ಗಳು<br>
+                            ಮಧ್ಯಂತರ ಪರೀಕ್ಷೆಗಳು<br>
+                            ಹಾಜರಾತಿ
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>50%</strong>
+
+                        <h4>
+                            ಬಾಹ್ಯ
+                        </h4>
+
+                        <p>
+                            ಸಮಗ್ರ ಅಂತಿಮ ಪರೀಕ್ಷೆ
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="assessment-block practical">
+
+                <h3>
+                    🛠️ ಪ್ರಾಯೋಗಿಕ ಮೌಲ್ಯಮಾಪನ
+                </h3>
+
+
+                <div class="split">
+
+                    <div>
+
+                        <strong>50%</strong>
+
+                        <h4>
+                            ಆಂತರಿಕ
+                        </h4>
+
+                        <p>
+                            ಅಸೈನ್‌ಮೆಂಟ್‌ಗಳು<br>
+                            ಲಾಗ್‌ಬುಕ್ ಪರಿಶೀಲನೆ<br>
+                            ಪ್ರಾಜೆಕ್ಟ್ ಕೆಲಸ
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>50%</strong>
+
+                        <h4>
+                            ಬಾಹ್ಯ
+                        </h4>
+
+                        <p>
+                            ಕೌಶಲ್ಯ ಪರೀಕ್ಷೆಗಳು<br>
+                            ಮಿನಿ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು<br>
+                            ಪೋರ್ಟ್‌ಫೋಲಿಯೊ<br>
+                            ವೈವಾ
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 10
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>09</span>
+            <h2>Academic Bank of Credits — ABC</h2>
+        </div>
+
+
+        <div class="abc-container">
+
+            <div class="abc-icon">
+                ABC
+            </div>
+
+
+            <div class="abc-content">
+
+                <h2>
+                    ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ ಕ್ರೆಡಿಟ್‌ಗಳು ಡಿಜಿಟಲ್ ರೂಪದಲ್ಲಿ ಸಂಗ್ರಹವಾಗುತ್ತವೆ
+                </h2>
+
+
+                <p>
+                    ಪ್ರತಿಯೊಬ್ಬ ವಿದ್ಯಾರ್ಥಿಗೂ ವಿಶಿಷ್ಟವಾದ
+                    12 ಅಂಕಿಗಳ ABC / APAAR ID ಇರುತ್ತದೆ.
+                </p>
+
+
+                <div class="abc-features">
+
+                    <div>
+
+                        <span>01</span>
+
+                        <p>
+                            ಕಲಿಕಾ ಘಟಕಗಳು ಮತ್ತು OJL ಮೂಲಕ
+                            ಗಳಿಸಿದ ಶೈಕ್ಷಣಿಕ ಕ್ರೆಡಿಟ್‌ಗಳನ್ನು ಸಂಗ್ರಹಿಸುತ್ತದೆ.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>02</span>
+
+                        <p>
+                            ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ ಪ್ರಯಾಣದಲ್ಲಿ
+                            ಹೆಚ್ಚಿನ ನಮ್ಯತೆಯನ್ನು ಒದಗಿಸುತ್ತದೆ.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>03</span>
+
+                        <p>
+                            ಭವಿಷ್ಯದ ಶೈಕ್ಷಣಿಕ ಅಗತ್ಯಗಳಿಗಾಗಿ
+                            ಕ್ರೆಡಿಟ್‌ಗಳನ್ನು ಡಿಜಿಟಲ್ ರೂಪದಲ್ಲಿ ದಾಖಲಿಸಲಾಗುತ್ತದೆ.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 11
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>10</span>
+            <h2>DigiLocker ಮತ್ತು ಡಿಜಿಟಲ್ ಪ್ರಮಾಣಪತ್ರಗಳು</h2>
+        </div>
+
+
+        <div class="digilocker">
+
+            <div class="phone">
+
+                <div class="phone-screen">
+
+                    <div class="phone-top">
+                        DigiLocker
+                    </div>
+
+
+                    <div class="document">
+
+                        <div class="document-logo">
+                            MSU
+                        </div>
+
+                        <h4>
+                            ಶೈಕ್ಷಣಿಕ ಪ್ರಮಾಣಪತ್ರ
+                        </h4>
+
+                        <p>
+                            ಮೆಧಾವಿ ಸ್ಕಿಲ್ಸ್ ಯೂನಿವರ್ಸಿಟಿ
+                        </p>
+
+                        <div class="verified">
+                            ✓ ಡಿಜಿಟಲ್ ಪರಿಶೀಲನೆಗೊಂಡಿದೆ
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="digital-info">
+
+                <h2>
+                    ನಿಮ್ಮ ಪ್ರಮಾಣಪತ್ರಗಳು ಡಿಜಿಟಲ್ ರೂಪದಲ್ಲಿ ಲಭ್ಯ
+                </h2>
+
+
+                <p>
+                    ABC ID ಮತ್ತು ಡಿಜಿಟಲ್ ಶೈಕ್ಷಣಿಕ
+                    ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಪಡೆಯುವ ಪ್ರಕ್ರಿಯೆಯ
+                    ಒಂದು ಭಾಗವಾಗಿ DigiLocker ಬಳಸಲಾಗುತ್ತದೆ.
+                </p>
+
+
+                <div class="digital-points">
+
+                    <div>
+
+                        <span>✓</span>
+
+                        <p>
+                            Aadhaar ಬಳಸಿ DigiLocker ಮೂಲಕ
+                            ಗುರುತಿನ ದೃಢೀಕರಣ.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>✓</span>
+
+                        <p>
+                            ಅಧಿಕೃತ ಪ್ರಮಾಣಪತ್ರಗಳು ಮತ್ತು
+                            ಅಂಕಪಟ್ಟಿಗಳು ಡಿಜಿಟಲ್ ರೂಪದಲ್ಲಿ ಲಭ್ಯವಿರಬಹುದು.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>✓</span>
+
+                        <p>
+                            ಡಿಜಿಟಲ್ ಪ್ರಮಾಣಪತ್ರಗಳು ಶೈಕ್ಷಣಿಕ
+                            ದಾಖಲೆಗಳನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತವೆ.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 12
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>11</span>
+            <h2>ವಿದ್ಯಾರ್ಥಿಯಾಗಿ ನಿಮ್ಮ ಜವಾಬ್ದಾರಿಗಳು</h2>
+        </div>
+
+
+        <div class="responsibility-grid">
+
+
+            <div class="responsibility">
+
+                <div class="res-icon">
+                    75%
+                </div>
+
+                <h3>
+                    ಹಾಜರಾತಿ
+                </h3>
+
+                <p>
+                    ತರಗತಿಗಳಲ್ಲಿ ಕಡ್ಡಾಯವಾದ
+                    75% ಹಾಜರಾತಿಯನ್ನು ಕಾಪಾಡಿಕೊಳ್ಳಿ.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility">
+
+                <div class="res-icon">
+                    75%
+                </div>
+
+                <h3>
+                    LMS ಬಳಕೆ
+                </h3>
+
+                <p>
+                    LMS ನಲ್ಲಿ ಅಗತ್ಯವಿರುವ
+                    75% ಕೋರ್ಸ್ ಬಳಕೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility">
+
+                <div class="res-icon">
+                    📓
+                </div>
+
+                <h3>
+                    OJL ಲಾಗ್‌ಬುಕ್
+                </h3>
+
+                <p>
+                    ನಿಮ್ಮ OJL ಲಾಗ್‌ಬುಕ್ ಅನ್ನು
+                    ಸರಿಯಾಗಿ ನಿರ್ವಹಿಸಿ ಮತ್ತು ಸಮಯಕ್ಕೆ ಸಲ್ಲಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility">
+
+                <div class="res-icon">
+                    📝
+                </div>
+
+                <h3>
+                    ಮೌಲ್ಯಮಾಪನಗಳು
+                </h3>
+
+                <p>
+                    ಕ್ವಿಜ್‌ಗಳು, ಪರೀಕ್ಷೆಗಳು, ಅಸೈನ್‌ಮೆಂಟ್‌ಗಳು
+                    ಮತ್ತು ಇತರ ಮೌಲ್ಯಮಾಪನಗಳನ್ನು ಜವಾಬ್ದಾರಿಯಿಂದ ಪೂರ್ಣಗೊಳಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility">
+
+                <div class="res-icon">
+                    ⏰
+                </div>
+
+                <h3>
+                    ಸಮಯಪಾಲನೆ
+                </h3>
+
+                <p>
+                    ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ ಮತ್ತು ಕೈಗಾರಿಕಾ
+                    ಕಾರ್ಯಗಳನ್ನು ನಿಗದಿತ ಸಮಯದೊಳಗೆ ಪೂರ್ಣಗೊಳಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="responsibility">
+
+                <div class="res-icon">
+                    👔
+                </div>
+
+                <h3>
+                    ವೃತ್ತಿಪರತೆ
+                </h3>
+
+                <p>
+                    ಕಾರ್ಯಸ್ಥಳದ ಶಿಸ್ತು, ಉಡುಗೆ ನಿಯಮಗಳು
+                    ಮತ್ತು ವೃತ್ತಿಪರ ನಡವಳಿಕೆಯನ್ನು ಪಾಲಿಸಿ.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 13
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>12</span>
+            <h2>MSU ಪ್ರಯಾಣದಲ್ಲಿ ಯಶಸ್ವಿಯಾಗುವುದು ಹೇಗೆ?</h2>
+        </div>
+
+
+        <div class="success-road">
+
+
+            <div class="road-step">
+
+                <span>01</span>
+
+                <h3>
+                    ಹಾಜರಾಗಿ
+                </h3>
+
+                <p>
+                    ತರಗತಿಗಳು ಮತ್ತು ಕೈಗಾರಿಕಾ
+                    ಚಟುವಟಿಕೆಗಳಿಗೆ ನಿಯಮಿತವಾಗಿ ಹಾಜರಾಗಿ.
+                </p>
+
+            </div>
+
+
+            <div class="road-step">
+
+                <span>02</span>
+
+                <h3>
+                    ಕಲಿಯಿರಿ
+                </h3>
+
+                <p>
+                    LMS ಸಂಪನ್ಮೂಲಗಳನ್ನು ಬಳಸಿ ಮತ್ತು
+                    ಕಲಿಕೆಯಲ್ಲಿ ಸಕ್ರಿಯವಾಗಿ ಭಾಗವಹಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="road-step">
+
+                <span>03</span>
+
+                <h3>
+                    ಅಭ್ಯಾಸ ಮಾಡಿ
+                </h3>
+
+                <p>
+                    OJL ಮತ್ತು ಪ್ರಾಜೆಕ್ಟ್‌ಗಳ ಸಮಯದಲ್ಲಿ
+                    ನಿಮ್ಮ ಜ್ಞಾನವನ್ನು ಅನ್ವಯಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="road-step">
+
+                <span>04</span>
+
+                <h3>
+                    ದಾಖಲಿಸಿ
+                </h3>
+
+                <p>
+                    ನಿಮ್ಮ ಲಾಗ್‌ಬುಕ್ ಮತ್ತು
+                    ಶೈಕ್ಷಣಿಕ ದಾಖಲೆಗಳನ್ನು ನಿರ್ವಹಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="road-step">
+
+                <span>05</span>
+
+                <h3>
+                    ಸಾಧಿಸಿ
+                </h3>
+
+                <p>
+                    ಮೌಲ್ಯಮಾಪನಗಳು ಮತ್ತು ಕಾರ್ಯಸ್ಥಳದ
+                    ಜವಾಬ್ದಾರಿಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="success-message">
+
+            <h2>
+                ಪದವಿ + ಕೌಶಲ್ಯಗಳು + ಕೈಗಾರಿಕಾ ಅನುಭವ
+            </h2>
+
+            <p>
+                ನಿಮ್ಮ ಗುರಿ ಕೇವಲ ಪದವಿಯೊಂದಿಗೆ ಪದವಿ ಪಡೆಯುವುದಲ್ಲ,
+                ಪ್ರಾಯೋಗಿಕ ಕಾರ್ಯಸ್ಥಳದ ಅನುಭವದೊಂದಿಗೆ
+                ವೃತ್ತಿಜೀವನಕ್ಕೆ ಸಿದ್ಧರಾಗುವುದು.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 14
+    ========================== -->
+
+    <section class="slide">
+
+        <div class="slide-header">
+            <span>13</span>
+            <h2>ನಿಮ್ಮ ವೃತ್ತಿಪರ ಪಯಣ</h2>
+        </div>
+
+
+        <div class="journey">
+
+
+            <div class="journey-card">
+
+                <div class="journey-number">
+                    01
+                </div>
+
+                <h3>
+                    ವಿದ್ಯಾರ್ಥಿ
+                </h3>
+
+                <p>
+                    ನಿಮ್ಮ ಶೈಕ್ಷಣಿಕ ಅಡಿಪಾಯವನ್ನು ನಿರ್ಮಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="journey-arrow">
+                →
+            </div>
+
+
+            <div class="journey-card">
+
+                <div class="journey-number">
+                    02
+                </div>
+
+                <h3>
+                    ಕಲಿಯುವವರು
+                </h3>
+
+                <p>
+                    ಜ್ಞಾನ ಮತ್ತು ಕೌಶಲ್ಯಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="journey-arrow">
+                →
+            </div>
+
+
+            <div class="journey-card">
+
+                <div class="journey-number">
+                    03
+                </div>
+
+                <h3>
+                    ಕೈಗಾರಿಕಾ ವೃತ್ತಿಪರ
+                </h3>
+
+                <p>
+                    ಕಾರ್ಯಸ್ಥಳದಲ್ಲಿ ನಿಮ್ಮ ಕಲಿಕೆಯನ್ನು ಅನ್ವಯಿಸಿ.
+                </p>
+
+            </div>
+
+
+            <div class="journey-arrow">
+                →
+            </div>
+
+
+            <div class="journey-card">
+
+                <div class="journey-number">
+                    04
+                </div>
+
+                <h3>
+                    ವೃತ್ತಿಜೀವನಕ್ಕೆ ಸಿದ್ಧ
+                </h3>
+
+                <p>
+                    ಜ್ಞಾನ ಮತ್ತು ಅನುಭವದೊಂದಿಗೆ ಪದವಿ ಪಡೆಯಿರಿ.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SLIDE 15
+    ========================== -->
+
+    <section class="slide final-slide">
+
+        <div class="final-content">
+
+            <div class="logo-circle">
+                MSU
+            </div>
+
+
+            <h1>
+                ನಿಮ್ಮ ಪಯಣ ಇಂದು ಪ್ರಾರಂಭವಾಗುತ್ತದೆ
+            </h1>
+
+
+            <p>
+                ನಿರಂತರವಾಗಿ ಕಲಿಯಿರಿ.
+                ಜವಾಬ್ದಾರಿಯಿಂದ ಕೆಲಸ ಮಾಡಿ.
+                ನಿಮ್ಮ ಕೌಶಲ್ಯಗಳನ್ನು ಬೆಳೆಸಿಕೊಳ್ಳಿ.
+                ನಿಮ್ಮ ಭವಿಷ್ಯವನ್ನು ನಿರ್ಮಿಸಿ.
+            </p>
+
+
+            <div class="quote">
+                “ನಾನು ಇನ್ನೂ ಕಲಿಯುತ್ತಿದ್ದೇನೆ.”
+            </div>
+
+
+            <p class="thankyou">
+                ಧನ್ಯವಾದಗಳು!
+            </p>
+
+
+            <button onclick="goToSlide(0)">
+                ↻ ಮತ್ತೆ ಪ್ರಾರಂಭಿಸಿ
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     NAVIGATION
+========================== -->
+
+<div class="navigation">
+
+    <button onclick="previousSlide()">
+        ←
+    </button>
+
+    <span id="slideNumber">
+        1 / 15
+    </span>
+
+    <button onclick="nextSlide()">
+        →
+    </button>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+let currentSlide = 0;
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const slideNumber =
+    document.getElementById("slideNumber");
+
+
+function showSlide(index) {
+
+    if (index >= slides.length) {
+        index = 0;
+    }
+
+    if (index < 0) {
+        index = slides.length - 1;
+    }
+
+    slides.forEach((slide) => {
+        slide.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+
+    currentSlide = index;
+
+    slideNumber.textContent =
+        `${currentSlide + 1} / ${slides.length}`;
+
+}
+
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+
+function previousSlide() {
+    showSlide(currentSlide - 1);
+}
+
+
+function goToSlide(index) {
+    showSlide(index);
+}
+
+
+/* Keyboard Navigation */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "ArrowRight" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            nextSlide();
+
+        }
+
+        if (event.key === "ArrowLeft") {
+
+            previousSlide();
+
+        }
+
+    }
+);
+
+
+/* Touch / Swipe Navigation */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+document.addEventListener(
+    "touchstart",
+    function(event) {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function(event) {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+
+        if (
+            touchEndX <
+            touchStartX - 50
+        ) {
+
+            nextSlide();
+
+        }
+
+
+        if (
+            touchEndX >
+            touchStartX + 50
+        ) {
+
+            previousSlide();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+```

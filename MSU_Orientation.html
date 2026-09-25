@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medhavi Skills University</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #123c78;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 28px;
+            color: #123c78;
+            margin-bottom: 35px;
+        }
+
+        .language-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .language-box {
+            text-decoration: none;
+            background: white;
+            padding: 35px 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: #123c78;
+            font-size: 22px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .language-box:hover {
+            background: #123c78;
+            color: white;
+            transform: translateY(-8px);
+            border-color: #123c78;
+        }
+
+        .language-box span {
+            display: block;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            background: #123c78;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 800px) {
+            .language-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .language-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Medhavi Skills University</h1>
+        <p>Student Orientation</p>
+    </header>
+
+    <main class="container">
+
+        <h2>Select Your Language</h2>
+
+        <div class="language-container">
+
+            <a href="kannada.html" class="language-box">
+                <span>ಕ</span>
+                ಕನ್ನಡ
+            </a>
+
+            <a href="MSU.html" class="language-box">
+                <span>A</span>
+                English
+            </a>
+
+            <a href="Hindi.html" class="language-box">
+                <span>अ</span>
+                हिंदी
+            </a>
+
+            <a href="Tamil.html" class="language-box">
+                <span>அ</span>
+                தமிழ்
+            </a>
+
+            <a href="Telugu.html" class="language-box">
+                <span>అ</span>
+                తెలుగు
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Medhavi Skills University</p>
+    </footer>
+
+</body>
+</html>
